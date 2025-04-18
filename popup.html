@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LeetCode Analyzer</title>
+  <style>
+    body { font-family: sans-serif; padding: 15px; min-width: 350px; font-size: 14px; }
+    h3 { margin-top: 0; }
+    label { display: block; margin-bottom: 5px; font-weight: bold;}
+    input[type="text"], textarea { width: 95%; padding: 8px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px;}
+    button { padding: 10px 15px; cursor: pointer; margin-right: 5px; border: none; border-radius: 4px; }
+    #saveButton { background-color: #4CAF50; color: white; }
+    #analyzeButton { background-color: #007bff; color: white; }
+    #analyzeButton:disabled { background-color: #cccccc; }
+    #status, #apiKeyStatus { margin-top: 10px; font-weight: bold; }
+    #resultArea {
+      margin-top: 15px;
+      padding: 10px;
+      border: 1px solid #e0e0e0;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      font-family: monospace; /* Good for code-like output */
+      white-space: pre-wrap; /* Preserve whitespace and wrap lines */
+      font-size: 0.9em;
+      min-height: 50px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    #resultArea strong {
+        display: block;
+        margin-bottom: 5px;
+        font-family: sans-serif; /* Use default font for the title */
+        font-weight: bold;
+    }
+     #resultArea pre {
+        margin: 0; /* Reset default pre margin */
+        padding: 0; /* Reset default pre padding */
+        font-family: inherit; /* Inherit monospace font */
+        white-space: pre-wrap; /* Ensure wrapping within pre */
+        word-wrap: break-word; /* Break long words */
+     }
+     .error { color: red; }
+     .info { color: orange; }
+     .success { color: green; }
+     hr { margin: 15px 0; border: 0; border-top: 1px solid #eee; }
+    .link { font-size: 0.9em; }
+  </style>
+</head>
+<body>
+  <h3>LeetCode Complexity Analyzer</h3>
+
+  <button id="analyzeButton">Analyze Code on Page</button>
+  <div id="status"></div>
+  <div id="resultArea" aria-live="polite">Analysis results will appear here.</div>
+
+  <hr>
+
+  <h4>Settings</h4>
+  <label for="apiKey">Gemini API Key:</label>
+  <input type="text" id="apiKey" name="apiKey" placeholder="Enter your Google AI Studio API Key">
+  <button id="saveButton">Save Key</button>
+  <div id="apiKeyStatus"></div>
+  <p class="link"><small>Your API key is stored locally using chrome.storage.sync.</small></p>
+  <p class="link"><small><a href="https://aistudio.google.com/app/apikey" target="_blank">Get a Gemini API Key</a></small></p>
+
+  <script src="popup.js"></script>
+</body>
+</html>
